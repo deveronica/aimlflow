@@ -214,6 +214,7 @@ def collect_metrics(aim_run, mlflow_run, mlflow_client, timestamp=None):
 
 
 def convert_existing_logs(repo_inst, tracking_uri, experiment=None, excluded_artifacts=None, no_cache=False):
+    mlflow.set_tracking_uri(tracking_uri)
     client = mlflow.tracking.client.MlflowClient(tracking_uri=tracking_uri)
 
     experiments = get_mlflow_experiments(client, experiment)
